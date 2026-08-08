@@ -122,6 +122,68 @@ if (revealItems.length) {
 
 }
 /*=========================================
+  WHATSAPP FEEDBACK FORM
+  (Sends feedback to +91 98395 77007)
+=========================================*/
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name = contactForm.querySelector('input[placeholder="Name"]')?.value.trim() || "";
+        const email = contactForm.querySelector('input[placeholder="E-mail"]')?.value.trim() || "";
+        const phone = contactForm.querySelector('input[placeholder="Phone"]')?.value.trim() || "";
+        const message = contactForm.querySelector('textarea')?.value.trim() || "";
+
+        if (name === "" || phone === "") {
+
+            alert("Please enter your Name and Phone Number.");
+
+            return;
+
+        }
+
+        // OWNER WHATSAPP NUMBER (+91 98395 77007)
+        const whatsappNumber = "919839577007";
+
+        const text = `*🖨️ Bharat Printing Press*
+
+*New Feedback Received*
+
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+📧 *Email:* ${email}
+
+━━━━━━━━━━━━━━━━━━━━
+
+💬 *Message:*
+
+"${message}"
+
+━━━━━━━━━━━━━━━━━━━━
+
+_Please contact me as soon as possible._
+
+_Thank You! ❤️_`;
+
+        // Open WhatsApp with the pre-filled message
+        window.open(
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+            "_blank"
+        );
+
+    });
+
+}
+
+
+/*=========================================
   WHATSAPP CONTACT FORM
 =========================================*/
 

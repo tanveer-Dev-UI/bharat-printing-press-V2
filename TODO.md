@@ -1,15 +1,9 @@
-# Todo - Mobile Responsive Fixes
+# TODO - Send Feedback Form Info to WhatsApp
 
-## Contact Section (mobile)
-- [x] Fix buggy 110px "CONTACT US" h1 in @media(max-width:480px)
-- [x] Remove/clean overlapping giant "CONTACT" background text on small screens
-- [x] Clean up form/map stacking and transforms so nothing is clipped
-- [x] Add smooth scaling between 480px and 400px breakpoints
+## Steps
+- [x] Analyze the feedback form structure in `index.html` (#contactForm)
+- [x] Identify current WhatsApp handler in `script.js`
+- [x] Edit `script.js` to add a submit handler for `#contactForm`
+- [x] Send Name, Phone, E-mail, and Message to WhatsApp number +91 98395 77007 (919839577007)
+- [x] Verify the feedback form opens WhatsApp to the correct number
 
-## Hero Section (mobile)
-- [x] Increase hero h1 word size in @media(max-width:900px)
-- [x] Increase hero h1 word size in @media(max-width:520px)
-- [x] Slightly increase hero paragraph size on mobile
-
-## Verification
-- [ ] Open site on mobile-sized viewport and confirm fixes
