@@ -1,4 +1,32 @@
 /*=========================================
+  STICKY NAVBAR (SCROLL EFFECT)
+=========================================*/
+
+const navbar = document.querySelector("nav");
+
+if (navbar) {
+
+    function onScroll() {
+
+        if (window.scrollY > 40) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    onScroll();
+
+}
+
+/*=========================================
   STORY SECTION
 =========================================*/
 

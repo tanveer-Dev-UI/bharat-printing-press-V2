@@ -83,21 +83,35 @@ body{
 
 nav{
 
-    position:absolute;
+    position:fixed;
 
     top:0;
     left:0;
 
     width:100%;
 
-    padding:30px 8%;
+    padding:14px 8%;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    z-index:10;
+    z-index:1000;
 
+    background:rgba(63,13,12,.55);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(217,192,169,.12);
+
+    transition:padding .4s ease, background .4s ease, box-shadow .4s ease;
+
+}
+
+/* Compact navbar after scrolling */
+nav.scrolled{
+    padding:10px 8%;
+    background:rgba(63,13,12,.95);
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
 }
 
 .logo{
@@ -110,23 +124,39 @@ nav{
 }
 .brand{
     display:flex;
-    align-items:flex-end;
-    gap:12px;
+    align-items:center;
+    gap:10px;
+}
+
+.brand-logo{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid rgba(217,176,97,.6);
+    flex-shrink:0;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    line-height:1;
 }
 
 .logo{
     font-family:'Bebas Neue',sans-serif;
-    font-size:42px;
+    font-size:32px;
     letter-spacing:2px;
     color:#fff;
     line-height:1;
 }
 
 .company-name{
-    font-size:13px;
-    letter-spacing:8px;
+    font-size:11px;
+    letter-spacing:6px;
     color:#cfcfcf;
-    margin-bottom:5px;
+    margin-top:3px;
     white-space:nowrap;
 }
 
@@ -134,7 +164,7 @@ nav ul{
 
     display:flex;
     list-style:none;
-    gap:45px;
+    gap:34px;
 
 }
 
@@ -142,7 +172,8 @@ nav ul a{
 
     color:white;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
+    font-weight:500;
     transition:.3s;
 
 }
@@ -158,13 +189,15 @@ nav ul a:hover{
     color:white;
     text-decoration:none;
 
-    padding:14px 30px;
+    padding:10px 24px;
 
     border:1px solid rgba(255,255,255,.2);
 
     border-radius:50px;
 
     backdrop-filter:blur(15px);
+
+    font-size:14px;
 
 }
 
@@ -202,11 +235,11 @@ margin:auto;
 .right-content img{
     width:auto;
     max-width:none;
-    height:95vh;
+    height:80vh;
     object-fit:contain;
     object-position:bottom;
     position:relative;
-    top:-20px;
+    top:-10px;
 
 }
 .right-content::before{
@@ -539,13 +572,20 @@ white-space:nowrap;
 
 nav{
 
-padding:20px 5%;
+padding:14px 5%;
 
 }
 
 .logo{
 
-font-size:30px;
+font-size:24px;
+
+}
+
+.brand-logo{
+
+width:32px;
+height:32px;
 
 }
 
@@ -616,6 +656,87 @@ STORY
 
 }
 
+/* Story content wrapper (fills the empty pages) */
+
+.story-content{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 8%;
+    max-width:900px;
+    margin:auto;
+
+}
+
+.story-label{
+
+    color:var(--gold);
+    letter-spacing:8px;
+    font-size:clamp(11px,1.4vw,15px);
+    font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:25px;
+
+}
+
+.story-desc{
+
+    color:var(--beige);
+    font-size:clamp(15px,1.8vw,20px);
+    line-height:1.9;
+    max-width:640px;
+    margin-top:40px;
+    opacity:.9;
+
+}
+
+/* Responsive story pages */
+
+@media(max-width:900px){
+
+    .story-label{
+
+        letter-spacing:5px;
+        margin-bottom:18px;
+
+    }
+
+    .story-desc{
+
+        margin-top:28px;
+        line-height:1.8;
+
+    }
+
+}
+
+@media(max-width:520px){
+
+    .story-content{
+
+        padding:40px 7%;
+
+    }
+
+    .story-desc{
+
+        font-size:15px;
+        margin-top:22px;
+
+    }
+
+    .story-label{
+
+        letter-spacing:4px;
+        font-size:11px;
+
+    }
+
+}
+
 /*======================================
 ABOUT
 ======================================*/
@@ -669,6 +790,148 @@ ABOUT
     line-height:2;
 
     color:var(--brown);
+
+}
+
+/*======================================
+OUR FOUNDER / OWNER
+======================================*/
+
+.owner{
+
+    background:var(--cream);
+
+    padding:40px 8% 120px;
+
+}
+
+.owner-card{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.4fr;
+
+    gap:80px;
+
+    align-items:center;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.owner-image{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.owner-image img{
+
+    width:100%;
+
+    max-width:400px;
+
+    border-radius:28px;
+
+    object-fit:contain;
+
+    box-shadow:0 30px 70px rgba(63,13,12,.25);
+
+}
+
+.owner-text span{
+
+    letter-spacing:5px;
+
+    color:var(--gold);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.owner-text h2{
+
+    margin:18px 0 28px;
+
+    font-family:'Bebas Neue';
+
+    font-size:clamp(3.5rem,7vw,6rem);
+
+    line-height:.9;
+
+    color:var(--ink);
+
+}
+
+.owner-text p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:var(--brown);
+
+    margin-bottom:20px;
+
+}
+
+.owner-sign{
+
+    margin-top:30px;
+
+    font-family:'Bebas Neue';
+
+    font-size:32px;
+
+    letter-spacing:2px;
+
+    color:var(--gold);
+
+}
+
+@media(max-width:900px){
+
+.owner{
+
+padding:40px 25px 80px;
+
+}
+
+.owner-card{
+
+grid-template-columns:1fr;
+
+gap:45px;
+
+text-align:center;
+
+}
+
+.owner-image img{
+
+max-width:280px;
+
+}
+
+.owner-text p{
+
+font-size:18px;
+
+text-align:center;
+
+}
+
+.owner-sign{
+
+text-align:center;
+
+}
 
 }
 
@@ -1485,6 +1748,8 @@ height:300px;
 
     padding:140px 8%;
 
+    scroll-margin-top:90px;
+
 }
 
 .machine-heading{
@@ -2185,15 +2450,20 @@ SOCIAL ICONS
 
 }
 
-.socials a:hover{
-
-    background:var(--gold);
-
-    color:var(--maroon);
-
-    transform:translateY(-6px);
-
+.socials a img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
 }
+
+.socials a:hover{
+    background:var(--gold);
+    color:var(--maroon);
+    transform:translateY(-6px);
+}
+
 
 /*=========================================
 BOTTOM MAP
@@ -2568,13 +2838,13 @@ letter-spacing:1px;
 }
 .contact-left{
 
-animation:leftReveal 1s ease;
+animation:leftReveal 1s ease forwards;
 
 }
 
 .contact-form{
 
-animation:rightReveal 1s ease;
+animation:rightReveal 1s ease forwards;
 
 }
 
